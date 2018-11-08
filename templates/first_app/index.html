@@ -10,7 +10,26 @@
 </head>
 <body>
     <h1>Hello this is index.html</h1>
-    {{ insert_me }}
+    <div>
+        {% if access_record %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date</th>
+                </thead>
+                {% for acc in access_record %}
+                    <tr>
+                        <td>{{ acc.name }}</td>
+                        <td>{{ acc.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>NO ACCESS RECORD FOUND!</p>
+        {% endif %}
+
+    </div>
     <img src="{% static "images/bs.jpg"%}" alt="dark souls">
+
 </body>
 </html>
